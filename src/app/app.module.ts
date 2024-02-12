@@ -9,12 +9,16 @@ import { AddproductComponent } from './MyComponents/product/addproduct/addproduc
 import { ViewproductComponent } from './MyComponents/product/viewproduct/viewproduct.component';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AddcustomerComponent } from './MyComponents/Customer/addcustomer/addcustomer.component';
+import { ViewcustomersComponent } from './MyComponents/Customer/viewcustomers/viewcustomers.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddproductComponent,
-    ViewproductComponent
+    ViewproductComponent,
+    AddcustomerComponent,
+    ViewcustomersComponent
   ],
   imports: [
     BrowserModule,

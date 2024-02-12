@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+
+import { Subject } from 'rxjs';
 import { Product } from 'src/app/Models/Product';
 import { ProductService } from 'src/app/Services/product.service';
 
@@ -13,7 +15,9 @@ export class ViewproductComponent {
 
   prodlist : Product[] = []
   response : any
-  reserr : any
+  reserr   : any
+  // dtOptions: DataTables.Settings = {};
+  dtTrigger : Subject<any> = new Subject<any>
   ngOnInit(): void {
     
     this.prodserv.getAllProducts().subscribe({
