@@ -23,6 +23,13 @@
               <li><a ngbDropdownItem class="dropdown-item" routerLink="viewcustomers">View Customer</a></li>
            </ul>
         </li>
+        <li ngbDropdown class="nav-item dropdown">
+          <a ngbDropdownToggle class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Vendor</a>
+           <ul ngbDropdownMenu class="dropdown-menu">
+             <li><a ngbDropdownItem class="dropdown-item" routerLink="addvendor">Add Vendor</a></li>
+              <li><a ngbDropdownItem class="dropdown-item" routerLink="viewvendor">View Vendor</a></li>
+           </ul>
+        </li>
   
         <li ngbDropdown class="nav-item dropdown">
           <a ngbDropdownToggle class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Invoice</a>
@@ -40,14 +47,6 @@
            </ul>
         </li>
   
-        <li ngbDropdown class="nav-item dropdown">
-          <a ngbDropdownToggle class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Appointment</a>
-           <ul ngbDropdownMenu class="dropdown-menu">
-             <li><a ngbDropdownItem class="dropdown-item" routerLink="bookappointment">Book Appointment </a></li>
-              <li><a ngbDropdownItem class="dropdown-item" routerLink="appointments">View Appointments</a></li>
-           </ul>
-        </li>
-       
         <li class="nav-item"><a class="nav-link active" routerLink="/activity"> Activities</a></li>
         <hr>
         <li ngbDropdown class="nav-item dropdown" >

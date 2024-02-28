@@ -16,7 +16,7 @@ export class ViewproductComponent {
   prodlist : Product[] = []
   response : any
   reserr   : any
-  // dtOptions: DataTables.Settings = {};
+ // dtOptions: DataTables.Settings = {};
   dtTrigger : Subject<any> = new Subject<any>
   ngOnInit(): void {
     

@@ -22,7 +22,7 @@ export class AddproductComponent {
     this.prodserv.saveProduct(this.product).subscribe({
       complete:() =>{
           sessionStorage.setItem('response','The product is saved successfully')
-          this.router.navigate(['/'])
+          this.router.navigate(['/viewproduct'])
 
       },
     })

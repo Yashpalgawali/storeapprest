@@ -19,7 +19,6 @@ export class ProductService {
   }
   public getAllProducts():Observable<Product[]>
   {
-    alert("Inside get All products service \n URL is = "+this.app_url)
     return this.http.get<Product[]>(`${this.app_url}`);
   }
   public getProductById(pid : number):Observable<Product>

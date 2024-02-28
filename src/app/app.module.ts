@@ -11,6 +11,11 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AddcustomerComponent } from './MyComponents/Customer/addcustomer/addcustomer.component';
 import { ViewcustomersComponent } from './MyComponents/Customer/viewcustomers/viewcustomers.component';
+import { AddvendorComponent } from './MyComponents/Vendor/addvendor/addvendor.component';
+import { ViewvendorComponent } from './MyComponents/Vendor/viewvendor/viewvendor.component';
+import { EditvendorComponent } from './MyComponents/Vendor/editvendor/editvendor.component';
+import { EditcustomerComponent } from './MyComponents/Customer/editcustomer/editcustomer.component';
+import { EditproductComponent } from './MyComponents/Product/editproduct/editproduct.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +23,12 @@ import { ViewcustomersComponent } from './MyComponents/Customer/viewcustomers/vi
     AddproductComponent,
     ViewproductComponent,
     AddcustomerComponent,
-    ViewcustomersComponent
+    ViewcustomersComponent,
+    AddvendorComponent,
+    ViewvendorComponent,
+    EditvendorComponent,
+    EditcustomerComponent,
+    EditproductComponent
   ],
   imports: [
     BrowserModule,

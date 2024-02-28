@@ -9,6 +9,4 @@ export class Product {
     cgst_per !: number
     sgst_per !: number
     igst_per !: number
-    
-
 }

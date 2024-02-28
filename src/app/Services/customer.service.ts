@@ -19,7 +19,7 @@ export class CustomerService {
   }
 
   public getAllCustomers():Observable<Customer[]>
-  {alert(this.app_url)
+  {
     return this.http.get<Customer[]>(`${this.app_url}`)
   }
   public getCustomerById(cid : number):Observable<Customer>
