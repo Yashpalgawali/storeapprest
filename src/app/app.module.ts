@@ -15,7 +15,8 @@ import { AddvendorComponent } from './MyComponents/Vendor/addvendor/addvendor.co
 import { ViewvendorComponent } from './MyComponents/Vendor/viewvendor/viewvendor.component';
 import { EditvendorComponent } from './MyComponents/Vendor/editvendor/editvendor.component';
 import { EditcustomerComponent } from './MyComponents/Customer/editcustomer/editcustomer.component';
-import { EditproductComponent } from './MyComponents/Product/editproduct/editproduct.component';
+import { EditproductComponent } from './MyComponents/product/editproduct/editproduct.component';
+import { AddinvoiceComponent } from './MyComponents/Invoice/addinvoice/addinvoice.component';
 
 @NgModule({
   declarations: [
@@ -28,13 +29,15 @@ import { EditproductComponent } from './MyComponents/Product/editproduct/editpro
     ViewvendorComponent,
     EditvendorComponent,
     EditcustomerComponent,
-    EditproductComponent
+    EditproductComponent,
+    AddinvoiceComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule
+
 
   ],
   providers: [],
