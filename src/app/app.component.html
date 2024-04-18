@@ -1,4 +1,4 @@
-<div >
+<div *ngIf="isLoggedIn!=null">
   <nav class="navbar navbar-expand-md navbar-light bg-light  fixed-top ">
     
     <!--   <a class="navbar-brand  " routerLink=" "><img  src=  " img/savera_logo.jpg}  "id="c_logo  "></a> -->
@@ -62,6 +62,22 @@
       </div>    
      </nav>
     
+    </div>
+
+    <div *ngIf="isLoggedIn==null">
+      <nav class="navbar navbar-expand-md navbar-light bg-light  fixed-top ">
+    
+        <!--   <a class="navbar-brand  " routerLink=" "><img  src=  " img/savera_logo.jpg}  "id="c_logo  "></a> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+              <li><a  class="nav-link" routerLink ="login">Login</a></li>
+            
+            </ul>
+          </div>
+      </nav>
     </div>
 
 

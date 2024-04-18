@@ -1,5 +1,18 @@
 <div class="container" >
-			
+    <!-- start: PAGE HEADER -->
+    <div class="row">
+    <div class="col-sm-12">
+        
+        <!-- start: PAGE TITLE & BREADCRUMB -->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item" >
+                <a routerLink="/"> <i class="fa fa-home"></i>&nbsp;Home </a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Add Invoice</li>
+        </ol>
+       
+    </div>
+</div>
     <div class="card">
     
     <div class="card-header">
@@ -11,30 +24,30 @@
          
          <div class="form-group">
            <label for="product">Product</label>
-             <select id="product" name="product" class="form-control mb-3">
+             <select id="product" name="product" class="form-control mb-3" [(ngModel)]="tempinvoice.product">
                  <option selected>Please Select Any Product</option>
-                 <option  *ngFor="let prod of prodlist; let i=index" [ngValue]="prod">{{prod.prod_name}} </option>
+                 <option  *ngFor="let prod of tempinvoice.prodlist ; let i=index" [ngValue]="prod">{{prod.prod_name}} </option>
              </select>
          </div>
          
          <div class="form-group">
              <label for="unit_price">Custom Basic Price</label>
-                 <input type="text" id="unit_price" name="unit_price" placeholder="Enter the Price of the Product" (focusout)="onFocusOutEvent($event)" class="form-control mb-3" required/>
+                 <input type="text" id="unit_price" name="unit_price" [(ngModel)]="tempinvoice.custom_price" placeholder="Enter the Price of the Product" (focusout)="onFocusOutEvent($event)" class="form-control mb-3" required/>
          </div>
          
          <div class="form-group">
              <label for="qty">Quantity</label>
-                 <input type="number" id="qty" name="qty" placeholder="Enter the Quantity" class="form-control mb-3" required/>
+                 <input type="number" id="qty" name="qty" placeholder="Enter the Quantity" [(ngModel)]="tempinvoice.qty" class="form-control mb-3" required/>
          </div>
          
         <label>Select State</label><br>
         <div class="form-check mb-1">
-            <input type="radio" class="form-check-input" id="maharashtra" name="stoption" value="mh" checked>
+            <input type="radio" class="form-check-input" id="maharashtra" [(ngModel)]="tempinvoice.stoption" name="stoption" value="mh" checked>
             <label class="form-check-label" for="maharashtra">Maharashtra</label>
         </div>
             
         <div class="form-check  mb-1">
-              <input type="radio" class="form-check-input" id="other" name="stoption" value="ot">
+              <input type="radio" class="form-check-input" id="other" [(ngModel)]="tempinvoice.stoption" name="stoption" value="ot">
                 <label class="form-check-label" for="other">Other</label>
         </div>
                           

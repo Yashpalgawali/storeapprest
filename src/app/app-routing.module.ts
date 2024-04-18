@@ -7,15 +7,20 @@ import { ViewcustomersComponent } from './MyComponents/Customer/viewcustomers/vi
 import { AddvendorComponent } from './MyComponents/Vendor/addvendor/addvendor.component';
 import { ViewvendorComponent } from './MyComponents/Vendor/viewvendor/viewvendor.component';
 import { AddinvoiceComponent } from './MyComponents/Invoice/addinvoice/addinvoice.component';
+import { LoginComponent } from './MyComponents/login/login.component';
+import { RouteGuardService } from './Services/route-guard.service';
 
 const routes: Routes = [
-    {path : "product" ,       component : AddproductComponent,pathMatch : 'full'},
-    {path : "viewproduct" ,   component : ViewproductComponent},
-    {path : "addcustomer" ,   component : AddcustomerComponent},
-    {path : "viewcustomers" , component : ViewcustomersComponent},
-    {path : "addvendor" ,     component : AddvendorComponent},
-    {path : "viewvendors" ,   component : ViewvendorComponent},
-    {path : "addinvoice" ,     component : AddinvoiceComponent}
+    {path : "product" ,       component : AddproductComponent,pathMatch : 'full',canActivate : [RouteGuardService]},
+    {path : "viewproduct" ,   component : ViewproductComponent, canActivate : [RouteGuardService]},
+    {path : "addcustomer" ,   component : AddcustomerComponent, canActivate : [RouteGuardService]},
+    {path : "viewcustomers" , component : ViewcustomersComponent,canActivate : [RouteGuardService]},
+    {path : "addvendor" ,     component : AddvendorComponent,canActivate : [RouteGuardService]},
+    {path : "viewvendors" ,   component : ViewvendorComponent,canActivate : [RouteGuardService]},
+    {path : "addinvoice" ,    component : AddinvoiceComponent,canActivate : [RouteGuardService]},
+    {path : "" , component : LoginComponent },
+    {path : "login" , component : LoginComponent }
+    
   ];
 
 @NgModule({
@@ -23,3 +28,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+ 

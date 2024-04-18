@@ -14,9 +14,9 @@ export class TempinvoiceService {
   
   constructor(private http : HttpClient) { }
 
-  public saveTempInvoice(Invoice : Temp_Invoice)
+  public saveTempInvoice(Invoice : Temp_Invoice):Observable<Temp_Invoice[]>
   {
-    return this.http.post(`${this.app_url}`,Invoice);
+    return this.http.post<Temp_Invoice[]>(`${this.app_url}`,Invoice);
   }
  
   public getTempInvoiceById(vid : number):Observable<Temp_Invoice>

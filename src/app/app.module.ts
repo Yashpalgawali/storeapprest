@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +17,10 @@ import { EditvendorComponent } from './MyComponents/Vendor/editvendor/editvendor
 import { EditcustomerComponent } from './MyComponents/Customer/editcustomer/editcustomer.component';
 import { EditproductComponent } from './MyComponents/product/editproduct/editproduct.component';
 import { AddinvoiceComponent } from './MyComponents/Invoice/addinvoice/addinvoice.component';
+import { LoginComponent } from './MyComponents/login/login.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { HttpInterceptorBasicAuthServiceService } from './Services/http-interceptor-basic-auth-service.service';
+import { LoginService } from './Services/login.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,8 @@ import { AddinvoiceComponent } from './MyComponents/Invoice/addinvoice/addinvoic
     EditvendorComponent,
     EditcustomerComponent,
     EditproductComponent,
-    AddinvoiceComponent
+    AddinvoiceComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -38,9 +43,10 @@ import { AddinvoiceComponent } from './MyComponents/Invoice/addinvoice/addinvoic
     FormsModule,
     HttpClientModule
 
-
   ],
-  providers: [],
+  providers: [LoginService,Location, 
+    {provide: LocationStrategy, useClass: HashLocationStrategy}, 
+    {provide : HTTP_INTERCEPTORS, useClass : HttpInterceptorBasicAuthServiceService , multi : true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

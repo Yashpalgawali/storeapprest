@@ -19,4 +19,5 @@ export class Temp_Invoice{
 	  custom_price !: number;
 	  stoption !: string;
       product : Product = new Product() ;
+	  prodlist : Product[] =[]
 }

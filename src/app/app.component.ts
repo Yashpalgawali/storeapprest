@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BasicAuthServiceService } from './Services/basic-auth-service.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'storeapp';
+  isLoggedIn : any
+  constructor(private authserv : BasicAuthServiceService) { 
+    
+    this.isLoggedIn = authserv.getAuthenticatedUser()
+  }
+
+
 }

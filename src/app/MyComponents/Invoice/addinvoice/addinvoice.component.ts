@@ -16,7 +16,7 @@ export class AddinvoiceComponent {
 
   invoice : Invoice = new Invoice()
   tempinvoice : Temp_Invoice = new Temp_Invoice()
-  prodlist : Product[] = []
+  //prodlist : Product[] = []
   tempinvlist : Temp_Invoice[] = []
 
   constructor(private invserv : InvoiceService,
@@ -27,18 +27,10 @@ export class AddinvoiceComponent {
 
     this.prodserv.getAllProducts().subscribe({
       next:(data)=>{
-        this.prodlist=data
+        this.tempinvoice.prodlist =data
       }
     })
 
-  //   $('#unit_price').focusout(function(){
-				
-  //     let gst = (18/100)+1;
-  //     alert(gst)
-  //     // let res = $(this).val() / gst;
-  //     // alert("price after applying 18% gst "+res);
-     
-  // });
   }
 
   onFocusOutEvent(event: any)
@@ -47,8 +39,18 @@ export class AddinvoiceComponent {
     let res = event.target.value / gst;
     (<HTMLInputElement>document.getElementById("unit_price")).value = ""+res;
   }
+
   saveTempInvoice() { 
-          alert(JSON.stringify(this.tempinvoice))
+         // alert("Inside save invoice "+JSON.stringify(this.tempinvoice))
+         this.teinvserv.saveTempInvoice(this.tempinvoice).subscribe({
+          next:(data)=>{
+            this.tempinvlist = data
+            alert('success')
+          },
+          error:(e)=>{
+            alert('failed')
+          }
+         })
   }
 
 }
