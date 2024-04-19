@@ -12,6 +12,7 @@ export class AppComponent {
   constructor(private authserv : BasicAuthServiceService) { 
     
     this.isLoggedIn = authserv.getAuthenticatedUser()
+    alert(this.isLoggedIn)
   }
 
 
