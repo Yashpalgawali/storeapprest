@@ -20,7 +20,7 @@ constructor(private authserv  : BasicAuthServiceService,
 Login(){
  this.loginserv.login(this.login.username,this.login.password).subscribe({
     complete : ()=> {
-      this.router.navigate(['viewproduct']).then(()=>{
+        this.router.navigate(['viewproduct']).then(()=>{
         window.location.reload()
       })
     },
