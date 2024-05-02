@@ -22,7 +22,7 @@ import { HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http'
         }
       })
       return next.handle(request);
-    }  
+    }
    
     return next.handle(request); 
   }
