@@ -12,14 +12,15 @@ import { LoginService } from 'src/app/Services/login.service';
 export class LoginComponent {
   response  : any;
   reserr    : any;
-  login     : Login = new  Login()
-constructor(private authserv  : BasicAuthServiceService,
-            private loginserv : LoginService,
-            private router    : Router) { }
+  login     : Login = new Login()
+  constructor(private authserv  : BasicAuthServiceService,
+              private loginserv : LoginService,
+              private router    : Router) { }
 
 Login(){
  this.loginserv.login(this.login.username,this.login.password).subscribe({
-    complete : ()=> {
+    next : (data)=> {
+        alert(data.token)
         this.router.navigate(['viewproduct']).then(()=>{
         window.location.reload()
       })
