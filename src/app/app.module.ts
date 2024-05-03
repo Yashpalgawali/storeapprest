@@ -19,8 +19,8 @@ import { EditproductComponent } from './MyComponents/product/editproduct/editpro
 import { AddinvoiceComponent } from './MyComponents/Invoice/addinvoice/addinvoice.component';
 import { LoginComponent } from './MyComponents/login/login.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { HttpInterceptorBasicAuthServiceService } from './Services/http-interceptor-basic-auth-service.service';
 import { LoginService } from './Services/login.service';
+import { HttpJwtInterceptorService } from './Services/http-jwt-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -44,9 +44,12 @@ import { LoginService } from './Services/login.service';
     HttpClientModule
 
   ],
+  // providers: [LoginService,Location, 
+  //   {provide: LocationStrategy, useClass: HashLocationStrategy}
+  // ],
   providers: [LoginService,Location, 
     {provide: LocationStrategy, useClass: HashLocationStrategy}, 
-    {provide : HTTP_INTERCEPTORS, useClass : HttpInterceptorBasicAuthServiceService , multi : true}],
+    {provide : HTTP_INTERCEPTORS, useClass : HttpJwtInterceptorService , multi : true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

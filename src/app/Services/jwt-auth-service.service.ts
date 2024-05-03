@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { GlobalComponents } from '../GlobalComponents';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AuthenticationBean } from '../Models/AuthenticationBean';
-import { map } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { JwtToken } from '../Models/JwtToken';
 
 @Injectable({
@@ -13,19 +12,16 @@ export class JwtAuthServiceService {
   constructor(private http: HttpClient) { }
   app_url = GlobalComponents.base_url;
   
-  base_url= this.app_url;
-  
-  executeJwtAuthenticationService(username:any, password:any) {
-    alert('Inside executeJwtAuthenticationService service \n Username and pass = '+username+'\n'+password)
-    let basicAuthHeaderString = 'Basic ' + (username + ':' + password);
-   
+  executeJwtAuthenticationService(username:any, password:any):Observable<JwtToken> {
+    let basicAuthHeaderString = 'Basic ' + btoa(username + ':' + password);
+    
     let headers = new HttpHeaders({
         Authorization: `${basicAuthHeaderString}`
-      })
+    })
      
      return this.http.get<JwtToken>(`${this.app_url}authenticate`,{ headers : headers}).pipe(
                     map(
-                      data=>{
+                      data=>{ 
                               sessionStorage.setItem('token',data.token)
                               sessionStorage.setItem('authenticatedUser',username)
                               localStorage.setItem('authenticatedUser',username)

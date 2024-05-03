@@ -20,7 +20,7 @@ export class LoginComponent {
 Login(){
  this.loginserv.login(this.login.username,this.login.password).subscribe({
     next : (data)=> {
-        alert(data.token)
+        alert('successful')
         this.router.navigate(['viewproduct']).then(()=>{
         window.location.reload()
       })
