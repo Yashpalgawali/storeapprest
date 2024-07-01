@@ -4,6 +4,9 @@
     <div *ngIf="reserr">
         <h6 class="alert alert-danger">{{reserr}}</h6>
     </div>
+    <div *ngIf="response">
+        <h6 class="alert alert-success">{{response}}</h6>
+    </div>
     <form (ngSubmit)="Login()">
         <div class="form-group">
             <label>username</label>

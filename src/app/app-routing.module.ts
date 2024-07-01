@@ -9,6 +9,7 @@ import { ViewvendorComponent } from './MyComponents/Vendor/viewvendor/viewvendor
 import { AddinvoiceComponent } from './MyComponents/Invoice/addinvoice/addinvoice.component';
 import { LoginComponent } from './MyComponents/login/login.component';
 import { RouteGuardService } from './Services/route-guard.service';
+import { LogoutComponent } from './MyComponents/logout/logout.component';
 
 const routes: Routes = [
     {path : "product" ,       component : AddproductComponent,pathMatch : 'full',canActivate : [RouteGuardService]},
@@ -19,7 +20,8 @@ const routes: Routes = [
     {path : "viewvendors" ,   component : ViewvendorComponent,canActivate : [RouteGuardService]},
     {path : "addinvoice" ,    component : AddinvoiceComponent,canActivate : [RouteGuardService]},
     {path : "" , component : LoginComponent },
-    {path : "login" , component : LoginComponent }
+    {path : "login" , component : LoginComponent },
+    {path : "logout" , component : LogoutComponent ,canActivate : [RouteGuardService]}
     
   ];
 

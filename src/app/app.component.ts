@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { BasicAuthServiceService } from './Services/basic-auth-service.service';
+import { JwtAuthServiceService } from './Services/jwt-auth-service.service';
+import { timeInterval } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +10,12 @@ import { BasicAuthServiceService } from './Services/basic-auth-service.service';
 export class AppComponent {
   title = 'storeapp';
   isLoggedIn : any
-  constructor(private authserv : BasicAuthServiceService) { 
-    
-    this.isLoggedIn = authserv.getAuthenticatedUser()
-    
+  constructor(private jwtauthserv : JwtAuthServiceService) { 
+   
+    setInterval(() => {
+      this.isLoggedIn = jwtauthserv.getAuthenticatedUser()
+      }, 1);
+      
+  
   }
-
-
 }

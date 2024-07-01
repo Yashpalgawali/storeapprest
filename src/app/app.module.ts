@@ -21,6 +21,7 @@ import { LoginComponent } from './MyComponents/login/login.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { LoginService } from './Services/login.service';
 import { HttpJwtInterceptorService } from './Services/http-jwt-interceptor.service';
+import { LogoutComponent } from './MyComponents/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -35,16 +36,17 @@ import { HttpJwtInterceptorService } from './Services/http-jwt-interceptor.servi
     EditcustomerComponent,
     EditproductComponent,
     AddinvoiceComponent,
-    LoginComponent
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule
-
+ 
   ],
-  // providers: [LoginService,Location, 
+  // providers: [LoginService,Location,
   //   {provide: LocationStrategy, useClass: HashLocationStrategy}
   // ],
   providers: [LoginService,Location, 

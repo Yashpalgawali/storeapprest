@@ -18,9 +18,10 @@ export class HttpJwtInterceptorService implements HttpInterceptor{
       request = request.clone({
         setHeaders : {
             Authorization : `${jwttoken}`
-          }
+          },
+          withCredentials: true // Ensure credentials (cookies) are sent  
+
         })
-        return next.handle(request);   
       }
       return next.handle(request);
   }

@@ -19,8 +19,9 @@ export class JwtAuthServiceService {
         Authorization: `${basicAuthHeaderString}`
     })
      
-     return this.http.get<JwtToken>(`${this.app_url}authenticate`,{ headers : headers}).pipe(
-                    map(
+    // return this.http.get<JwtToken>(`${this.app_url}authenticate`,{ headers : headers}).pipe(
+      return this.http.get<JwtToken>(`${this.app_url}authenticate`, { headers: headers, withCredentials: true }  ).pipe(
+    map(
                       data=>{ 
                               sessionStorage.setItem('token',data.token)
                               sessionStorage.setItem('authenticatedUser',username)
@@ -33,26 +34,31 @@ export class JwtAuthServiceService {
   }
 
   getAuthenticatedUser() {
-    if(sessionStorage.getItem('authenticatedUser')!=null || sessionStorage.getItem('authenticatedUser')==='')
+    
+    if(sessionStorage.getItem('authenticatedUser')!=null || sessionStorage.getItem('authenticatedUser')!='')
     {
       return sessionStorage.getItem('authenticatedUser')
     }
     else
     {
+      sessionStorage.setItem('token',`${localStorage.getItem('token')}`)
       sessionStorage.setItem('authenticatedUser',`${localStorage.getItem('authenticatedUser')}`)
       return localStorage.getItem('authenticatedUser') 
     }
   }
-
+  
   getAuthenticatedToken() {
-    if(this.getAuthenticatedUser())
-      return sessionStorage.getItem('token')
+    if(this.getAuthenticatedUser()!=null)
+    {
+      return sessionStorage.getItem('token') 
+    }
+
     else
       return
   }
 
   isUserLoggedIn() {
-    if(sessionStorage.getItem('authenticatedUser')!=null || sessionStorage.getItem('authenticatedUser')==='')
+    if(sessionStorage.getItem('authenticatedUser')!=null || sessionStorage.getItem('authenticatedUser')!='')
     {
       let user = sessionStorage.getItem('token')
       return !(user === null)
@@ -69,5 +75,6 @@ export class JwtAuthServiceService {
     sessionStorage.removeItem('token')
     localStorage.removeItem('authenticatedUser')
     localStorage.removeItem('token')
+    
   }
 }
